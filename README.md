@@ -1,0 +1,2 @@
+# kite
+diary on leetcode
