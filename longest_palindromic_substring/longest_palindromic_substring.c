@@ -7,23 +7,20 @@
 char* manacher(char *s) {
 
 	int rl = 0;
-	char* r = (char*)malloc(sizeof(char) * max_rl);
+	char r[max_rl] = { 0 };
 	r[0] = '$';
 	for (; s[rl]; rl++) {
 		r[rl * 2 + 1] = '#';
 		r[rl * 2 + 2] = s[rl];
 	}
 	rl = rl * 2 + 1;
-	r[rl] = '#';
-	r[rl + 1] = '^';
-	r[rl + 2] = 0;
+	memcpy(r + rl, "#^", sizeof(char) * 2);
 
 	int ml = 0;
 	int mi = 0;
 
 	int pi = 0;
-	int* mp = (int*)malloc(sizeof(int)*rl);
-	memset(mp, 0, sizeof(int)*rl);
+	int mp[max_rl] = { 0 };
 
 	for (int i = 1; i < rl; i++) {
 
