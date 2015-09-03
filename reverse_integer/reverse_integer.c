@@ -3,10 +3,7 @@
 int reverse(int x) {
 
 	bool negative = x < 0;
-
-	if (negative) {
-		x = -x;
-	}
+	x = negative ? -x : x;
 
 	int res = 0;
 
@@ -19,10 +16,6 @@ int reverse(int x) {
 		res = res * 10 + n;
 	}
 
-	if (negative) {
-		res = -res;
-	}
-
-	return res;
+	return negative ? -res : res;
 
 }
